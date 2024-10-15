@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <script src="{% static "js/app.js" %}" defer ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Hello, Welcome</h1>
+        <input type="search" placeholder="Search..." />
+    </header>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <h2>Dashboard</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active" data-section="dashboard-section">Dashboard</a></li>
+                <li class="dropdown">
+                    <span class="dropbtn">Employees</span>
+                    <div class="dropdown-content">
+                        <a href="{% url 'employee_directory' %}" data-section="employee-directory-section">Employee Directory</a>
+                        <a href="/dashboard" data-section="leave-request-section">Leave Request</a>
+                    </div>
+                </li>
+                <li><a href="#" data-section="recruitment-section">Recruitment</a></li>
+                <li><a href="#" data-section="hub-section">Hub</a></li>
+                <li><a href="#" data-section="settings-section">Settings</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Dashboard Section -->
+            <div id="dashboard-section" class="content-section">
+                
+
+                <!-- Stats Cards -->
+                <section class="stats-cards">
+                    <div class="card">
+                        <h3>Employees On Leave</h3>
+                        <p>5/80</p>
+                    </div>
+                    <div class="card">
+                        <h3>Pending Requests</h3>
+                        <p>10</p>
+                    </div>
+                    <div class="card">
+                        <h3>Open Positions</h3>
+                        <p>2</p>
+                    </div>
+                    <div class="card">
+                        <h3>Pending Applications</h3>
+                        <p>5</p>
+                    </div>
+                </section>
+
+                <!-- Leave Applications Chart -->
+                <section class="chart-section">
+                    <h2>Leave Applications</h2>
+                    <canvas id="leaveChart"></canvas>
+                </section>
+
+                <!-- Recent Activity Section -->
+                <section class="recent-activity">
+                    <h2>Recent</h2>
+                    <!-- Tab Navigation -->
+                    <div class="tabs">
+                        <button class="tab-button" onclick="openTab(event, 'requestTab')">Request</button>
+                        <button class="tab-button" onclick="openTab(event, 'jobTab')">Job</button>
+                    </div>
+
+                    <!-- Request Tab Content -->
+                    <div id="requestTab" class="tab-content active">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Candidate Name</th>
+                                    <th>Applied Role</th>
+                                    <th>Resume Rating</th>
+                                    <th>Stage</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>13/01</td>
+                                    <td>Aisha Doe</td>
+                                    <td>Sr. UX Designer</td>
+                                    <td>4</td>
+                                    <td>Review</td>
+                                    <td><span class="pending">Pending</span></td>
+                                    <td>...</td>
+                                </tr>
+                                <!-- More rows here -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Job Tab Content -->
+                    <div id="jobTab" class="tab-content">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Job Title</th>
+                                    <th>Department</th>
+                                    <th>Location</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>13/01</td>
+                                    <td>Project Manager</td>
+                                    <td>Operations</td>
+                                    <td>New York</td>
+                                    <td><span class="approved">Approved</span></td>
+                                    <td>...</td>
+                                </tr>
+                                <!-- More rows here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Profile Section -->
+    <section class="profile">
+        <div class="profile-header">
+            <div class="profile-picture">
+                <img src="/path/to/default-profile-pic.png" alt="Profile Picture">
+            </div>
+            <div class="profile-info">
+                <h2>Employee Name</h2>
+                <p>Job Role</p>
+                <p>employee@example.com</p>
+            </div>
+            <button class="edit-profile">Edit Profile</button>
+        </div>  
+
+        <!-- Tabs Section -->
+        <div class="tabs">
+            <button class="tablinks active" onclick="openTab(event, 'personal-info')">Personal Information</button>
+            <button class="tablinks" onclick="openTab(event, 'professional-info')">Professional Information</button>
+        </div>
+
+        <!-- Personal Info Tab -->
+        <div id="personal-info" class="tabcontent" style="display: block;">
+            <h3>Personal Information</h3>
+            <p><strong>First Name:</strong> Ali</p>
+            <p><strong>Last Name:</strong> Balogun</p>
+            <p><strong>Mobile Number:</strong> (702) 555-0122</p>
+            <p><strong>Email Address:</strong> ali@gmail.com</p>
+            <p><strong>Date of Birth:</strong> July 14, 1999</p>
+            <p><strong>Gender:</strong> Male</p>
+            <p><strong>Nationality:</strong> Nigerian</p>
+            <p><strong>Home Address:</strong> 426 Adebayo Adedeji, Utako</p>
+            <p><strong>City:</strong> Utako</p>
+            <p><strong>State:</strong> Abuja State</p>
+        </div>
+
+        <!-- Professional Info Tab -->
+        <div id="professional-info" class="tabcontent">
+            <h3>Professional Information</h3>
+            <p><strong>Position:</strong> Project Manager</p>
+            <p><strong>Years of Experience:</strong> 5 Years</p>
+            <p><strong>Department:</strong> Software Development</p>
+            <!-- Add other professional information here -->
+        </div>
+    </section>
+    
+            <!-- Additional sections (Recruitment, Hub, Settings) can be added similarly with display: none initially -->
+
+        </div>
+    </div>
+
+</body>
+</html>
