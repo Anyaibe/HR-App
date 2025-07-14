@@ -1,11 +1,42 @@
+
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>HR App</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/app.js' %}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    
+    <!-- Header -->
+    <header>
+        <h1>Welcome to HR Dashboard</h1>
+        <input type="search" placeholder="Search..." />
+    </header>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <h2>Dashboard</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'dashboard' %}" class="active" data-section="dashboard-section">Dashboard</a></li>
+                <li class="dropdown">
+                    <span class="dropbtn">Employees</span>
+                    <div class="dropdown-content">
+                        <a href="{% url 'employee_directory' %}" data-section="employee-directory-section">Employee Directory</a>
+                        <a href="{% url 'leave_directory' %}" data-section="leave-request-section">Leave Request</a>
+                    </div>
+                </li>
+                <li><a href="#" data-section="recruitment-section">Recruitment</a></li>
+                <li><a href="#" data-section="hub-section">Hub</a></li>
+                <li><a href="#" data-section="settings-section">Settings</a></li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>

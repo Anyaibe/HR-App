@@ -92,10 +92,49 @@
                 <button class="pagination-btn">&gt;</button>
             </div>
 
+
+    </div>
+
+    <!-- Profile Section -->
+    <section class="profile" id ="info">
+        <div class="profile-header">
+            <div class="profile-picture">
+                {% comment %} <img src="/path/to/default-profile-pic.png" alt="Profile Picture"> {% endcomment %}
+            </div>
+            <div class="profile-info" >
+                <h2>Employee Name</h2>
+                <p>Job Role</p>
+                <p>employee@example.com</p>
+            </div>
+            <button class="edit-profile">Edit Profile</button>
+        </div>  
+
+        <!-- Tabs Section -->
+        <div class="tabs">
+            <button class="tablinks active" onclick="openTab(event, 'personal-info')">Personal Information</button>
+            <button class="tablinks" onclick="openTab(event, 'professional-info')">Professional Information</button>
+        </div>
+        <br>
+        <!-- Personal Info Tab -->
+        <div id="personal-info" class="tabcontent" style="display: block;">
+            <h3>Personal Information</h3>
+            <p><strong>First Name:</strong> Ali</p>
+            <p><strong>Last Name:</strong> Balogun</p>
+            <p><strong>Mobile Number:</strong> (702) 555-0122</p>
+            <p><strong>Email Address:</strong> ali@gmail.com</p>
+            <p><strong>Date of Birth:</strong> July 14, 1999</p>
+            <p><strong>Gender:</strong> Male</p>
+            <p><strong>Nationality:</strong> Nigerian</p>
+            <p><strong>Home Address:</strong> 426 Adebayo Adedeji, Utako</p>
+            <p><strong>City:</strong> Utako</p>
+            <p><strong>State:</strong> Abuja State</p>
+        </div>
+
+            
             <!-- Back Button to return to Employee Directory --> 
             <button id="back-to-directory" style="display: none;" onclick="showDirectory()">Back to Employee Directory</button>
             <br>
         </section>
-    </div>
+
 </body>
 </html>
