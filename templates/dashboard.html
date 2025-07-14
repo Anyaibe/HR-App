@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <script src="{% static "js/chart.js" %}" defer ></script>
     <script src="{% static "js/app.js" %}" defer ></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -24,17 +24,17 @@
                 <h2>Dashboard</h2>
             </div>
             <ul class="nav-links">
-                <li><a href="#" class="active" data-section="dashboard-section">Dashboard</a></li>
+                <li><a href="/" class="active">Dashboard</a></li>
                 <li class="dropdown">
                     <span class="dropbtn">Employees</span>
                     <div class="dropdown-content">
-                        <a href="{% url 'employee_directory' %}" data-section="employee-directory-section">Employee Directory</a>
-                        <a href="/dashboard" data-section="leave-request-section">Leave Request</a>
+                        <a href="{% url 'employee_directory' %}">Employee Directory</a>
+                        <a href="{% url 'leave_directory' %}">Leave Request</a>
                     </div>
                 </li>
-                <li><a href="#" data-section="recruitment-section">Recruitment</a></li>
-                <li><a href="#" data-section="hub-section">Hub</a></li>
-                <li><a href="#" data-section="settings-section">Settings</a></li>
+                <li><a href="#">Recruitment</a></li>
+                <li><a href="#">Hub</a></li>
+                <li><a href="#">Settings</a></li>
             </ul>
         </div>
 
@@ -136,41 +136,6 @@
                     </div>
                 </section>
             </div>
-
-            <!-- Profile Section -->
-    <section class="profile">
-        <div class="profile-header">
-            <div class="profile-picture">
-                <img src="/path/to/default-profile-pic.png" alt="Profile Picture">
-            </div>
-            <div class="profile-info">
-                <h2>Employee Name</h2>
-                <p>Job Role</p>
-                <p>employee@example.com</p>
-            </div>
-            <button class="edit-profile">Edit Profile</button>
-        </div>  
-
-        <!-- Tabs Section -->
-        <div class="tabs">
-            <button class="tablinks active" onclick="openTab(event, 'personal-info')">Personal Information</button>
-            <button class="tablinks" onclick="openTab(event, 'professional-info')">Professional Information</button>
-        </div>
-
-        <!-- Personal Info Tab -->
-        <div id="personal-info" class="tabcontent" style="display: block;">
-            <h3>Personal Information</h3>
-            <p><strong>First Name:</strong> Ali</p>
-            <p><strong>Last Name:</strong> Balogun</p>
-            <p><strong>Mobile Number:</strong> (702) 555-0122</p>
-            <p><strong>Email Address:</strong> ali@gmail.com</p>
-            <p><strong>Date of Birth:</strong> July 14, 1999</p>
-            <p><strong>Gender:</strong> Male</p>
-            <p><strong>Nationality:</strong> Nigerian</p>
-            <p><strong>Home Address:</strong> 426 Adebayo Adedeji, Utako</p>
-            <p><strong>City:</strong> Utako</p>
-            <p><strong>State:</strong> Abuja State</p>
-        </div>
 
         <!-- Professional Info Tab -->
         <div id="professional-info" class="tabcontent">
